@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MyWpfApp.View.UserControls.IslemKayitlari"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             
+
+             xmlns:local="clr-namespace:MyWpfApp.View.UserControls"
+            
+             mc:Ignorable="d" 
+             d:DesignHeight="235" d:DesignWidth="600">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Loading_Gif için bir satır -->
+            
+            <!-- StackPanel için bir satır -->
+            <RowDefinition Height="*" />
+            <!-- DataGrid için bir satır -->
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="dataGrid" Grid.Row="0" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <!-- Diğer sütunlar -->
+                <DataGridTemplateColumn Header="Sil">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="X" Background="Red" Foreground="White" Click="SilButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image  Grid.Row="1" x:Name="Loading_Gif" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="pack://application:,,,/MyWpfApp;component/images/icons/loading.gif" Height="60px" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+
+       
+    </Grid>
+
+</UserControl>
